@@ -149,24 +149,18 @@ class ProductController extends Controller
     public function search_by_name(Request $request){
 
         $product_name=$request->product_name;
-        $products_info=DB::table('tbl_product')
-                    ->where('product_name',$product_name)
+        
+
+            $products_info=DB::table('tbl_product')
+                    ->where('product_name','like','%'.$product_name.'%')
                     ->get();
-             foreach ($products_info as $product) {
-                 
-            if($product){
 
+      
+          
                 return view('pages.search')->with('all_product_info',$products_info);
-
-            }else{
-
-                Session::put('search','this product is not here');
-                return view('pages.search');                 
-
-            }            
-             }
-
-    } 
+       
+     
+        } 
 
  
 }
