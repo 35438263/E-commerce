@@ -3,19 +3,8 @@
 
     <h2 class="title text-center">Search Result</h2>
 
+     
     @foreach($all_product_info as $product_info)
-      <p class="alert-danger">
-                        <?php
-                        $search_result=Session::get('search');
-                        
-                        if($search_result){
-                            echo ($search_result);
-                            Session::put('search',null);
-
-                        }
-
-                        ?>
-                    </p>
 
     <div class="col-sm-4">
         <div class="product-image-wrapper">
